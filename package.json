@@ -30,6 +30,12 @@
       "path": "cz-conventional-changelog"
     }
   },
+  "moduleRoots": [
+    "src"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
   "author": "Jay",
   "license": "MIT",
   "dependencies": {
