@@ -15,11 +15,11 @@
     "build:remove": "node ./scripts/build.remove.js",
     "prebuild": "npm run build:remove",
     "build": "node ./scripts/build.js && npm run type:declaration",
-    "postbuild": "npm run type:declaration",
     "test": "BABEL_ENV=test jest --coverage",
     "commit": "git-cz",
     "release": "standard-version",
-    "prepublish": "npm run build && npm run release"
+    "prepublish": "npm run build && npm run release",
+    "postpublish": "npm run build:remove"
   },
   "repository": {
     "type": "git",
