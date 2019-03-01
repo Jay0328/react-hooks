@@ -17,11 +17,17 @@
     "build": "node ./scripts/build.js && npm run type:declaration",
     "postbuild": "npm run type:declaration",
     "test": "BABEL_ENV=test jest --coverage",
+    "commit": "git-cz",
     "release": "standard-version"
   },
   "repository": {
     "type": "git",
     "url": "https://gitlab.jay0328.me/root/UJ.git"
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
   },
   "author": "Jay",
   "license": "MIT",
