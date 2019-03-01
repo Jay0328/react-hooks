@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "target": "esnext",
+    "moduleResolution": "node",
+    "strict": true,
+    "esModuleInterop": true,
+    "noImplicitAny": true,
+    "experimentalDecorators": true,
+    "noEmit": true,
+    "jsx": "react",
+    "lib": [
+      "dom",
+      "es2017"
+    ]
+  },
+  "include": [
+    "src"
+  ],
+  "exclude": [
+    "node_modules",
+    "src/**/*.test.ts"
+  ]
+}

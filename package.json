@@ -1,0 +1,61 @@
+{
+  "name": "@jay19950328/react-hooks",
+  "version": "0.0.1",
+  "description": "react hooks",
+  "keywords": [
+    "Jay",
+    "react",
+    "hooks"
+  ],
+  "main": "index.js",
+  "scripts": {
+    "type:check": "tsc",
+    "type:declaration": "tsc --noEmit false --emitDeclarationOnly --declaration --declarationDir ./",
+    "lint": "tslint -c tslint.json 'src/**/*.{ts,tsx}'",
+    "build:remove": "node ./scripts/build.remove.js",
+    "prebuild": "npm run build:remove",
+    "build": "node ./scripts/build.js && npm run type:declaration",
+    "postbuild": "npm run type:declaration",
+    "test": "BABEL_ENV=test jest --coverage",
+    "release": "standard-version"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://gitlab.jay0328.me/root/UJ.git"
+  },
+  "author": "Jay",
+  "license": "MIT",
+  "dependencies": {
+    "react": "^16.8.3",
+    "react-dom": "^16.8.3"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.2.3",
+    "@babel/node": "^7.2.2",
+    "@babel/plugin-proposal-class-properties": "^7.3.4",
+    "@babel/plugin-proposal-decorators": "^7.3.0",
+    "@babel/plugin-proposal-json-strings": "^7.2.0",
+    "@babel/preset-env": "^7.3.4",
+    "@babel/preset-react": "^7.0.0",
+    "@babel/preset-typescript": "^7.3.3",
+    "@babel/register": "^7.0.0",
+    "@types/react": "^16.8.6",
+    "@types/react-dom": "^16.8.2",
+    "babel-jest": "^24.1.0",
+    "commitizen": "^3.0.7",
+    "cz-conventional-changelog": "^2.1.0",
+    "enzyme": "^3.9.0",
+    "enzyme-adapter-react-16": "^1.10.0",
+    "enzyme-to-json": "^3.3.5",
+    "jest": "^24.1.0",
+    "react-test-renderer": "^16.8.3",
+    "rollup": "^1.2.3",
+    "rollup-plugin-babel": "^4.3.2",
+    "rollup-plugin-node-resolve": "^4.0.1",
+    "standard-version": "^5.0.1",
+    "tslint": "^5.13.0",
+    "tslint-react": "^3.6.0",
+    "typescript": "^3.3.3333"
+  }
+}
