@@ -1,6 +1,6 @@
 {
   "name": "@jay19950328/react-hooks",
-  "version": "0.0.1",
+  "version": "0.0.0",
   "description": "react hooks",
   "keywords": [
     "Jay",
@@ -18,7 +18,8 @@
     "postbuild": "npm run type:declaration",
     "test": "BABEL_ENV=test jest --coverage",
     "commit": "git-cz",
-    "release": "standard-version"
+    "release": "standard-version",
+    "prepublish": "npm run build && npm run release"
   },
   "repository": {
     "type": "git",

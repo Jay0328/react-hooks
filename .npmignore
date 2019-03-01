@@ -4,10 +4,8 @@ node_modules/
 # Else
 coverage/
 scripts/
-.stylelintrc
 babel.config.js
 jest.config.json
 tsconfig.json
 tslint.json
-webpack.config.js
 *.log
