@@ -1,0 +1,40 @@
+before_script:
+  - pwd
+  - which nodejs
+  - nodejs -v
+  - which npm
+  - npm -v
+  - which yarn
+  - yarn --version
+
+stages:
+  - test
+  - publish
+
+test:
+  tags:
+    - node-10.15.3
+  script:
+    - yarn install
+    - yarn run type:check
+    - yarn run lint
+    #- yarn run test
+  stage: test
+  only:
+    - develop
+    - tags
+
+publish:
+  tags:
+    - node-10.15.3
+  script:
+    - yarn install
+    - yarn run build:remove
+    - yarn run build
+    - echo NPT_TOKEN is ${NPM_TOKEN}
+    - echo '//registry.npmjs.org/:_authToken=${NPM_TOKEN}' > .npmrc
+    - cat .npmrc
+    - npm publish
+  stage: publish
+  only:
+    - tags
