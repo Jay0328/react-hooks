@@ -7,7 +7,7 @@ export type SetStateWithCallback<T> = (
 	callback?: SetStateCallback
 ) => void;
 
-export default function useStateWithCallback<T>(value: T | (() => T)): [T, SetStateWithCallback<T>] {
+export default function useStateCb<T>(value: T | (() => T)): [T, SetStateWithCallback<T>] {
 	const [state, setState] = React.useState(value);
 	const callbackRef = React.useRef<SetStateCallback | null>(null);
 	const setStateWithCallback = React.useCallback<SetStateWithCallback<T>>(
