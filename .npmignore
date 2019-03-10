@@ -1,11 +1,18 @@
 # node
 node_modules/
 
-# Else
+# dir
 coverage/
 scripts/
+src/
+
+# file
+*.log
+.editorconfig
+.gitignore
+.prettierignore
+.prettierrc
 babel.config.js
 jest.config.json
 tsconfig.json
 tslint.json
-*.log
