@@ -28,7 +28,10 @@
 			"allow-empty-functions"
 		],
 		"no-empty-interface": false,
-		"no-trailing-whitespace": true,
+		"no-trailing-whitespace": [
+			true,
+			"ignore-comments"
+		],
 		"object-literal-sort-keys": false,
 		"one-variable-per-declaration": [
 			false
@@ -44,6 +47,16 @@
 		"semicolon": [
 			true,
 			"always"
+		],
+		"space-before-function-paren": [
+			true,
+			{
+				"anonymous": "always",
+				"asyncArrow": "always",
+				"constructor": "never",
+				"method": "never",
+				"named": "never"
+			}
 		],
 		"trailing-comma": [
 			true,

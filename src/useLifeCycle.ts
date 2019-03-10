@@ -5,7 +5,7 @@ export interface LifeCycle {
 	willUnmount?: () => void;
 }
 
-const useLifeCycle = (lifeCycle: LifeCycle) => {
+export default function useLifeCycle(lifeCycle: LifeCycle) {
 	React.useEffect(
 		() => {
 			if (lifeCycle.didMount) {
@@ -20,6 +20,4 @@ const useLifeCycle = (lifeCycle: LifeCycle) => {
 		},
 		[]
 	);
-};
-
-export default useLifeCycle;
+}

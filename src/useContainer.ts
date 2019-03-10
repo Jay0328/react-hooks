@@ -7,11 +7,11 @@ export type ContainerType =
 	| React.ReactInstance
 	| ContainerRefType;
 
-const isContainerAsRef = (container: ContainerType): container is ContainerRefType => (
-	(container as ContainerRefType).current !== undefined
-);
+function isContainerAsRef(container: ContainerType): container is ContainerRefType {
+	return (container as ContainerRefType).current !== undefined;
+}
 
-const getContainerElement = (container: ContainerType): Element | null => {
+function getContainerElement(container: ContainerType): Element | null {
 	if (!container) {
 		return null;
 	} else if (container instanceof Element) {
@@ -25,15 +25,13 @@ const getContainerElement = (container: ContainerType): Element | null => {
 	}
 
 	return ReactDOM.findDOMNode(container) as Element;
-};
+}
 
-const useContainer = (container: ContainerType) => {
+export default function useContainer(container: ContainerType): Element | null {
 	const [element, setElement] = React.useState<Element | null>(getContainerElement(container));
 	React.useEffect(
 		() => setElement(getContainerElement(container)),
 		isContainerAsRef(container) ? [container.current] : [container]
 	);
 	return element;
-};
-
-export default useContainer;
+}

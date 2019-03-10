@@ -4,18 +4,17 @@ const { exec } = require('child_process');
 const root = path.resolve(__dirname, '..');
 const src = path.resolve(root, 'src');
 
-const removeBuild = async () => await Promise.all(
-	await fs
-		.readdirSync(path.resolve(src))
-		.map(async dir => {
-			const stat = await fs.statSync(path.resolve(src, dir));
+const removeCommonJS = async () => {
+	await exec(`rm -rf ${path.resolve(root, 'cjs')}`);
+};
 
-			if (stat.isDirectory()) {
-				return exec(`rm -rf ${path.resolve(root, dir)}`)
-			}
+const removeES = async () => {
+	await exec(`rm -rf ${path.resolve(root, 'es')}`);
+};
 
-			return;
-		})
-);
+const removeBuild = async () => await Promise.all([
+	removeCommonJS(),
+	removeES(),
+]);
 
 removeBuild();
