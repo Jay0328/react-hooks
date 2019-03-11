@@ -1,7 +1,7 @@
 import React from 'react';
 import useDidMount from './useDidMount';
 
-export default function useUpdate(update: () => void, deps?: ReadonlyArray<any>) {
+export default function useDidUpdate(didUpdate: () => void, deps?: ReadonlyArray<any>) {
 	const isMounted = React.useRef(false);
 
 	useDidMount(() => {
@@ -11,7 +11,7 @@ export default function useUpdate(update: () => void, deps?: ReadonlyArray<any>)
 	React.useEffect(
 		() => {
 			if (isMounted.current) {
-				update();
+				didUpdate();
 			}
 		},
 		deps
