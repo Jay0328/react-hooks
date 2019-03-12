@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+# [0.2.0](https://gitlab.jay0328.me/root/UJ/compare/v0.1.2...v0.2.0) (2019-03-12)
+
+
+### Bug Fixes
+
+* **useDidUpdate:** won't be called if unmounted ([ce94516](https://gitlab.jay0328.me/root/UJ/commit/ce94516))
+
+
+### Features
+
+* useMediaQuery ([14ff157](https://gitlab.jay0328.me/root/UJ/commit/14ff157))
+* useWindowSize ([725796d](https://gitlab.jay0328.me/root/UJ/commit/725796d))
+
+
+
 ## [0.1.2](https://gitlab.jay0328.me/root/UJ/compare/v0.1.1...v0.1.2) (2019-03-11)
 
 
