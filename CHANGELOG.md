@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+# [1.0.0](https://github.com/Jay0328/react-hooks/compare/v0.2.0...v1.0.0) (2019-03-30)
+
+
+### chore
+
+* upgrade ([3a9eaf5](https://github.com/Jay0328/react-hooks/commit/3a9eaf5))
+
+
+### BREAKING CHANGES
+
+* use es instead of commonjs
+
+
+
 # [0.2.0](https://gitlab.jay0328.me/root/UJ/compare/v0.1.2...v0.2.0) (2019-03-12)
 
 
