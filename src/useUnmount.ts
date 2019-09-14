@@ -1,16 +1,12 @@
-import React from 'react';
+import { useLatest } from './useLatest';
+import { useIsomorphicLayoutEffect } from './useIsomorphicLayoutEffect';
 
-export default function useUnmount(unmount: () => void) {
-	const unmountRef = React.useRef<() => void>();
+export function useUnmount(callback: () => void) {
+	const unmount = useLatest(callback);
 
-	unmountRef.current = unmount;
-
-	React.useEffect(
-		() => () => {
-			if (unmountRef.current) {
-				unmountRef.current();
-			}
-		},
-		[]
-	);
+	useIsomorphicLayoutEffect(() => () => {
+		if (unmount.current) {
+			unmount.current();
+		}
+	}, []);
 }
