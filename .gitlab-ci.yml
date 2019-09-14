@@ -1,3 +1,9 @@
+image:
+  name: node:10.16.3
+
+variables:
+  DOCKER_DRIVER: overlay2
+
 before_script:
   - pwd
   - which nodejs
@@ -7,28 +13,36 @@ before_script:
   - which yarn
   - yarn --version
 
+cache:
+  untracked: true
+  paths:
+    - node_modules/
+
 stages:
+  - install_dependencies
   - test
   - publish
 
-test:
-  tags:
-    - node-10.15.3
+install_dependencies:
   script:
     - yarn install
+  stage: install_dependencies
+  only:
+    - develop
+    - tags
+
+test:
+  script:
     - yarn run type:check
     - yarn run lint
-    #- yarn run test
+    - yarn run test
   stage: test
   only:
     - develop
     - tags
 
 publish:
-  tags:
-    - node-10.15.3
   script:
-    - yarn install
     - yarn run build:remove
     - yarn run build
     - echo NPT_TOKEN is ${NPM_TOKEN}
