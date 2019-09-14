@@ -28,11 +28,12 @@
   "author": "Jay",
   "license": "MIT",
   "scripts": {
-    "type:check": "tsc",
+    "type:check": "tsc --project tsconfig.test.json",
+    "type:declaration": "tsc --project tsconfig.app.json",
     "lint": "tslint -c tslint.json 'src/**/*.{ts,tsx}'",
-    "test": "BABEL_ENV=test jest --coverage",
+    "test": "jest --coverage --config=jest.config.json",
     "build:remove": "node ./scripts/build.remove.js",
-    "build": "node ./scripts/build.js",
+    "build": "node ./scripts/build.js && npm run type:declaration",
     "commit": "git-cz",
     "release": "standard-version"
   },

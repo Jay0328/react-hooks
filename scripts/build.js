@@ -1,14 +1,9 @@
 const path = require('path');
 const { rollup } = require('rollup');
 const babel = require('rollup-plugin-babel');
-const { exec } = require('child_process');
 const entries = require('./entries');
 
 const root = path.resolve(__dirname, '..');
-
-const buildDeclaration = async dir => {
-	await exec(`tsc --noEmit false --emitDeclarationOnly --declaration --declarationDir ${dir}`);
-};
 
 const buildES = async bundle => {
 	const dir = root;
@@ -18,14 +13,14 @@ const buildES = async bundle => {
 		sourcemap: false,
 		interop: false
 	});
-	await buildDeclaration(dir);
 };
 
 const build = async () => {
 	const input = await entries();
 	const plugins = babel({
 		exclude: 'node_modules/**',
-		extensions: ['.ts', '.js']
+		extensions: ['.ts', '.js'],
+		runtimeHelpers: true
 	});
 	const external = [
 		...(
