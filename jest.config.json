@@ -1,0 +1,15 @@
+{
+  "roots": [
+    "<rootDir>/src/"
+  ],
+  "testMatch": [
+    "**/__tests__/**/*.test.ts"
+  ],
+  "automock": false,
+  "globals": {
+    "__TESTS__": true
+  },
+  "coveragePathIgnorePatterns": [
+    "<rootDir>/node_modules/"
+  ]
+}
