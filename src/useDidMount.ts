@@ -1,10 +1,7 @@
-import React from 'react';
+import { useIsomorphicLayoutEffect } from './useIsomorphicLayoutEffect';
 
 export function useDidMount(didMount: () => void) {
-	React.useLayoutEffect(
-		() => {
-			didMount();
-		},
-		[]
-	);
+	useIsomorphicLayoutEffect(() => {
+		didMount();
+	}, []);
 }
