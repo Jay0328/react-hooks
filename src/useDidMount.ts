@@ -1,7 +1,7 @@
 import React from 'react';
 
-export default function useDidMount(didMount: () => void) {
-	React.useEffect(
+export function useDidMount(didMount: () => void) {
+	React.useLayoutEffect(
 		() => {
 			didMount();
 		},
