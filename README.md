@@ -2,14 +2,12 @@
 
 ## Getting Started
 
-#### Installation
+### Installation
 
-```
-npm install @jay19950328/react-hooks --save
-```
+```bash
+npm install @jjaayy/react-hooks --save
 
 or
 
-```
-yarn add @jay19950328/react-hooks
+yarn add @jjaayy/react-hooks
 ```
