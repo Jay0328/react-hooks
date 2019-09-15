@@ -1,37 +1,37 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import { RefObject, useState } from 'react';
+import { useDidUpdate } from './useDidUpdate';
 
-type ElementRefType = React.RefObject<React.ReactInstance>;
+export type ElementRef = RefObject<HTMLElement>;
+export type GetElement = () => HTMLElement;
+export type ElementParameter =
+	| HTMLElement
+	| ElementRef
+	| GetElement;
 
-export type ElementType =
-	| React.ReactInstance
-	| ElementRefType;
-
-function isElementAsRef(element: ElementType): element is ElementRefType {
-	return (element as ElementRefType).current !== undefined;
+function isElementParameterAsRef(param: ElementParameter): param is ElementRef {
+	return (param as ElementRef).hasOwnProperty('current');
 }
 
-function getElement(element: ElementType): Element | null {
-	if (!element) {
-		return null;
-	} else if (element instanceof Element) {
-		return element;
-	} else if (typeof element !== 'object') {
-		return null;
+function getElement(param: ElementParameter) {
+	if (param instanceof HTMLElement) {
+		return param;
+	} else if (isElementParameterAsRef(param)) {
+		return param.current;
 	}
 
-	if (isElementAsRef(element)) {
-		return element.current ? (ReactDOM.findDOMNode(element.current) as Element) : null;
-	}
-
-	return ReactDOM.findDOMNode(element) as Element;
+	return param();
 }
 
-export default function useElement(element: ElementType): Element | null {
-	const [el, setElement] = React.useState<Element | null>(getElement(element));
-	React.useEffect(
-		() => setElement(getElement(element)),
-		isElementAsRef(element) ? [element.current] : [element]
-	);
-	return el;
+export function useElement(param: ElementParameter) {
+	const [element, setElement] = useState<HTMLElement | null>(() => getElement(param));
+
+	useDidUpdate(() => {
+		const newElement = getElement(param);
+
+		if (element !== newElement) {
+			setElement(newElement);
+		}
+	}, isElementParameterAsRef(param) ? [param.current] : [param]);
+
+	return element;
 }
