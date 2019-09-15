@@ -1,6 +1,38 @@
-# Change Log
+# Changelog
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+## [2.0.0](https://github.com/Jay0328/react-hooks/compare/v1.0.0...v2.0.0) (2019-09-15)
+
+
+### ⚠ BREAKING CHANGES
+
+* **useElement:** findDOMNode for parameter is deprecated
+* **useSetState:** removed
+* **useWindowSize:** use name export
+* **useMediaQuery:** removed
+* entry file removed, import  hook file needed instead
+
+### Bug Fixes
+
+* **useDidUpdate:** avoid from triggered on did mount phase ([4ddfb6a](https://github.com/Jay0328/react-hooks/commit/4ddfb6a))
+
+
+### Features
+
+* **useForceUpdate:** initial ([00c7ecc](https://github.com/Jay0328/react-hooks/commit/00c7ecc))
+* **useIsMounted:** initial ([3dff68a](https://github.com/Jay0328/react-hooks/commit/3dff68a))
+* **useIsomorphicLayoutEffect:** initial ([d3fcdcf](https://github.com/Jay0328/react-hooks/commit/d3fcdcf))
+* **useLatest:** initial ([4f81dd6](https://github.com/Jay0328/react-hooks/commit/4f81dd6))
+* **useLatestCallback:** initial ([971202d](https://github.com/Jay0328/react-hooks/commit/971202d))
+* **useSetState:** initial ([f6d29b0](https://github.com/Jay0328/react-hooks/commit/f6d29b0))
+
+
+* remove entry file ([d5463ff](https://github.com/Jay0328/react-hooks/commit/d5463ff))
+* **useElement:** add RefObject ([0f2ba84](https://github.com/Jay0328/react-hooks/commit/0f2ba84))
+* **useMediaQuery:** removed ([e05ea27](https://github.com/Jay0328/react-hooks/commit/e05ea27))
+* **useSetState:** removed ([612486b](https://github.com/Jay0328/react-hooks/commit/612486b))
+* **useWindowSize:** use name export ([5923f60](https://github.com/Jay0328/react-hooks/commit/5923f60))
 
 # [1.0.0](https://github.com/Jay0328/react-hooks/compare/v0.2.0...v1.0.0) (2019-03-30)
 
